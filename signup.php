@@ -12,11 +12,17 @@ $psw = $_POST["psw"];
 
 // $query -> execute();
 
+// $getusers = pg_query($db_connection, "SELECT * FROM \"Users\"");
 
-if($db_connection->pg_query("INSERT INTO Users ('fname', 'lname', 'email', 'address', 'city', 'state', 'zipcode', 'username', 'psw') VALUES($fname, $lname, $email ,$address, $city, $state, $zipcode, $username, $psw)")){
-	echo 'Data inserted';
-	echo '<br/>';
-}
+$query = "INSERT INTO \"Users\" VALUES ('$fname', '$lname', '$email', '$address', '$city', '$state', '$zipcode', '$username', '$psw')";
+
+$result = pg_query($db_connection, $query);
+
+
+// if($db_connection->pg_query("INSERT INTO Users ('fname', 'lname', 'email', 'address', 'city', 'state', 'zipcode', 'username', 'psw') VALUES($fname, $lname, $email ,$address, $city, $state, $zipcode, $username, $psw)")){
+// 	echo 'Data inserted';
+// 	echo '<br/>';
+// }
 header ("location:index.php");
 
 pg_close($db_connection);
