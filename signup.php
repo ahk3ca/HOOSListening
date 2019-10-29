@@ -9,9 +9,15 @@ $state = $_POST["state"];
 $zipcode = $_POST["zipcode"];
 $username = $_POST["username"];
 $psw = $_POST["psw"];
-if($dbconn->query("INSERT INTO users (fname, lname, email, address, city, state, zipcode, username, psw) VALUES('$fname', '$lname', '$email' ,'$address', '$city', $state, '$zipcode', '$username', '$psw')")){
+
+// $query -> execute();
+
+
+if($db_connection->pg_query("INSERT INTO Users ('fname', 'lname', 'email', 'address', 'city', 'state', 'zipcode', 'username', 'psw') VALUES($fname, $lname, $email ,$address, $city, $state, $zipcode, $username, $psw)")){
 	echo 'Data inserted';
 	echo '<br/>';
 }
 header ("location:index.php");
+
+pg_close($db_connection);
 ?>
