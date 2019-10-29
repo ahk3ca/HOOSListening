@@ -9,7 +9,6 @@ require 'vendor/PHPMailer/phpmailer/src/PHPMailer.php';
 require 'vendor/PHPMailer/phpmailer/src/SMTP.php';
 
 include 'config.php';
-include 'index.php';
 $fname = $_POST["fname"];
 $lname = $_POST["lname"];
 $email = $_POST["email"];
