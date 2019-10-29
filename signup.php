@@ -6,8 +6,6 @@ use PHPMailer\PHPMailer\SMTP;
 
 use PHPMailer\PHPMailer\Exception;
 require 'vendor/autoload.php';
-require 'vendor/PHPMailer/phpmailer/src/PHPMailer.php';
-require 'vendor/PHPMailer/phpmailer/src/SMTP.php';
 
 include 'config.php';
 $fname = $_POST["fname"];
