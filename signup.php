@@ -41,6 +41,7 @@ $result = pg_query($db_connection, $query);
         $mail->Subject = 'Welcome to HOOSListening!';
         $mail->Body = 'Thanks for signing up with HOOSListening!';
         $mail->send();
+        $_SESSION['isLogged'] = true;
 
 		exit();
 	}

@@ -9,22 +9,6 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<style>
-.iframe {
-  padding: 0;
-  margin: 0;
-  border: none;
-  margin: 0;
-  padding: 0;
-  display: block;
-  width: 100%;
-  height: 50vh;
-  float: left;
-  &::-webkit-scrollbar { 
-    display: none; 
-  }
-}
-</style>
 <html>
 	<head>
 		<title>HOOS Listening | Home</title>
@@ -45,7 +29,6 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
 							<li><a href="#two">What we do</a></li>
 							<li><a href="#three">Sign Up</a></li>
 							<li><a href="#four">Get in touch</a></li>
-							<li><a href="#five">Services</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -61,7 +44,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
 							<p>Let your <strong>voice</strong> be heard.<!--  <a href="http://html5up.net">HTML5 UP</a><br />
 							and released for free under the <a href="http://html5up.net/license">Creative Commons</a>. --></p>
 							<ul class="actions">
-								<li><a href="temp link" class="button scrolly">DOWNLOAD NOW</a></li>
+								<li><a href="login.php" class="button scrolly">Member Login</a></li>
 							</ul>
 						</div>
 					</section>
@@ -71,6 +54,9 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
 						<div class="inner">
 							<h2>Who We Are</h2>
 							<p>With HOOS Listening, finding new music from emerging artists has never been easier. Support your favorite, local artists by interacting with their content and helping them gain more national exposure. <br /> <br /> Let your <strong>voice</strong> be heard.</p>
+							<ul class="actions">
+								<li><a href="#three" class="button">Sign Up</a></li>
+							</ul>
 							<ul class="actions">
 								<li><a href="#three" class="button">Sign Up</a></li>
 							</ul>
@@ -108,13 +94,13 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
 			    <input type="text" placeholder="Enter Last Name" name="lname" required pattern = "^[a-zA-Z]+-*[a-zA-Z]*$" title = "Need one letter minimum. Nothing besides letters. Hyphens allowed.">
 
 			    <label for="email"><b>Email</b></label>
-			    <input type="text" placeholder="Enter Email" name="email"required pattern = "^.+@+.+\.+.+$" value = "" title = "Please use valid email format. At least one . symbol and one @ symbol. >
+			    <input type="text" placeholder="Enter Email" name="email"required pattern = "^.+@+.+\.+.+$" value = "" title = "Please use valid email format. At least one . symbol and one @ symbol." >
 
                 <label for="address"><b>Address</b></label>
-			    <input type="text" placeholder="Enter Address" name="address" required>
+			    <input type="text" placeholder="Enter Address" name="address" required pattern = "^\d+.*[a-zA-Z]+$" title = "Need at least one number followed by one letter.">
 
                 <label for="city"><b>City</b></label>
-			    <input type="text" placeholder="Enter City" name="city" required>
+			    <input type="text" placeholder="Enter City" name="city" required pattern = "^[a-zA-Z]+\s*[a-zA-Z]*$" value = "" title = "Need at least one letter">
 
                 <label for="state"><b>State</b></label>
                 <select name = "state" required>
@@ -174,7 +160,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
 			    			
 
                 <label for="zipcode"><b>5-digit zip code</b></label>
-			    <input type="text" placeholder="Enter 5-digit zip code" name="zipcode" required>
+			    <input type="text" placeholder="Enter 5-digit zip code" name="zipcode" required pattern = "^\d{5}$" value = "" title = "Need exactly 5 numbers.">
 
                 <label for="username"><b>Username</b></label>
 			    <input type="text" placeholder="Enter Username" name="username" required>
@@ -193,7 +179,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
 
 			    <div class="clearfix">
 			      <button type="button" class="cancelbtn">Cancel</button>
-			      <button type="submit" class="signupbtn">Sign Up</button>
+			      <button type="submit" class="signupbtn" value="Submit">Sign Up</button>
 			    </div>
 			  </div>
 			</form>
@@ -270,51 +256,6 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
 											</ul>
 										</li>
 									</ul>
-								</section>
-							</div>
-						</div>
-					</section>
-
-					<!-- Five -->
-					<section id="five" class="wrapper style1 fade-up">
-						<div class="inner">
-							<h2>Services</h2>
-							<p>Buy plz.</p>
-							<div class="split style1">
-								<section>
-									<iframe src="https://bitcoinwisdom.io/markets/bitstamp/btcusd" class="iframe"></iframe>
-								</section> 
-								<section>
-										<div class="container">
-											<h3>Premium</h3>
-											<ul class="alt">
-												<li>This is the premium description</li>
-												<li>Price : 0.002 BTC</li>
-												<li>
-													<form action="https://test.bitpay.com/checkout" method="post">
-														<input type="hidden" name="action" value="checkout" />
-														<input type="hidden" name="posData" value="" />
-														<input type="hidden" name="data" value="v0BGPkhuQEjZIdeSYOJXP6EqInRsAHkhnEXbpvCTnmb2XPqR2eUZHDnGX1RmOe12ix2gqJMvcjsO/V38wk7hk0XO7D0o1tZIU/1MMoBAFmbvSIGo3yJewCMrmqlZFNiU//D53qy5uXEstkMfgDam8HzqHqMn0unMLQl7z0ZM5Ti3bIvH/tp7R/MehdAZAUxjbifvEPMVLvtsJM+fWJSANQ==" />
-														<input type="image" src="https://test.bitpay.com/cdn/en_US/bp-btn-pay-currencies.svg" name="submit" style="width: 210px" alt="BitPay, the easy way to pay with bitcoins.">
-													</form>
-												</li>
-											</ul>
-										</div>
-										<div class="container">
-											<h3>Normal</h3>
-											<ul class="alt">
-												<li>This is the normal description</li>
-												<li>Price : 0.001 BTC</li>
-												<li>
-													<form action="https://test.bitpay.com/checkout" method="post">
-														<input type="hidden" name="action" value="checkout" />
-														<input type="hidden" name="posData" value="" />
-														<input type="hidden" name="data" value="v0BGPkhuQEjZIdeSYOJXP6EqInRsAHkhnEXbpvCTnmb2XPqR2eUZHDnGX1RmOe12XGFi4jK19wVqDqVy9gJRqOeTTtTCKkwhuXcXY70vz8xfSUL40jt8D4A7+R6Hf9h40JYy7aZeMA3msiXQ1VQcnnAkQ8mtbTfZsXqr+cRDof1DfSij56h2wgTcVB5WG47KYHEZwxGUaVSYcLIUqvzckw==" />
-														<input type="image" src="https://test.bitpay.com/cdn/en_US/bp-btn-pay-currencies.svg" name="submit" style="width: 210px" alt="BitPay, the easy way to pay with bitcoins.">
-													</form>
-												</li>
-											</ul>
-										</div>
 								</section>
 							</div>
 						</div>
