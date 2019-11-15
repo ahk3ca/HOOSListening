@@ -1,5 +1,7 @@
 <?php
 session_start();
+$_SESSION['isLogged'] = false;
+$_SESSION['name'] = "Josh";
 ?>
 
 <!DOCTYPE HTML>
@@ -41,9 +43,13 @@ session_start();
 							<li><a href="#intro">Home</a></li>
 							<li><a href="#one">Who we are</a></li>
 							<li><a href="#two">What we do</a></li>
-							<li><a href="#three">Sign Up</a></li>
+							<?php if(!$_SESSION['isLogged']) { ?>
+								<li><a href="#three">Sign Up</a></li>
+							<?php } ?>
 							<li><a href="#four">Get in touch</a></li>
-							<li><a href="#five">Services</a></li>
+							<?php if($_SESSION['isLogged']) { ?>
+								<li><a href="#five">Services</a></li>
+							<?php } ?>
 						</ul>
 					</nav>
 				</div>
@@ -56,8 +62,15 @@ session_start();
 					<section id="intro" class="wrapper style1 fullscreen fade-up">
 						<div class="inner">
 							<h1>HOOS Listening</h1>
-							<p>Let your <strong>voice</strong> be heard.<!--  <a href="http://html5up.net">HTML5 UP</a><br />
-							and released for free under the <a href="http://html5up.net/license">Creative Commons</a>. --></p>
+							<?php 
+								if($_SESSION['isLogged']){
+									echo "<p>";
+									echo $_SESSION['name'] , ", ", "Let your <strong>voice</strong> be heard."; 
+									echo "</p>";
+								} else {
+									echo "<p>Let your <strong>voice</strong> be heard.</p>";
+								}
+							?>
 							<ul class="actions">
 								<li><a href="temp link" class="button scrolly">DOWNLOAD NOW</a></li>
 							</ul>
@@ -89,130 +102,114 @@ session_start();
 
 
 					<!-- Sign up page (three) -->
-		<section id="three" class="wrapper style1 fade-up">
-						<div class="inner">				
-							<div class="split style1">
-								<section>
-									<form method="POST" action="signup.php" >
-			  <div class="container">
-			    <h1>Sign Up</h1>
-			    <p>Please fill in this form to create an account.</p>
-			    <hr>
+		<?php if(!$_SESSION['isLogged']) { ?>
+			<section id="three" class="wrapper style1 fade-up">
+				<div class="inner">				
+					<div class="split style1">
+						<section>
+							<form method="POST" action="signup.php" >
+								<div class="container">
+									<h1>Sign Up</h1>
+									<p>Please fill in this form to create an account.</p>
+									<hr>
 
-                <label for="fname"><b>First Name</b></label>
-			    <input type="text" placeholder="Enter First Name" name="fname" required pattern = "^[a-zA-Z]+$" title = "Need one letter minimum. Nothing besides letters.">
+									<label for="fname"><b>First Name</b></label>
+									<input type="text" placeholder="Enter First Name" name="fname" required pattern = "^[a-zA-Z]+$" title = "Need one letter minimum. Nothing besides letters.">
 
-                <label for="lname"><b>Last Name</b></label>
-			    <input type="text" placeholder="Enter Last Name" name="lname" required pattern = "^[a-zA-Z]+-*[a-zA-Z]*$" title = "Need one letter minimum. Nothing besides letters. Hyphens allowed.">
+									<label for="lname"><b>Last Name</b></label>
+									<input type="text" placeholder="Enter Last Name" name="lname" required pattern = "^[a-zA-Z]+-*[a-zA-Z]*$" title = "Need one letter minimum. Nothing besides letters. Hyphens allowed.">
 
-			    <label for="email"><b>Email</b></label>
-			    <input type="text" placeholder="Enter Email" name="email"required pattern = "^.+@+.+\.+.+$" value = "" title = "Please use valid email format. At least one . symbol and one @ symbol. >
+									<label for="email"><b>Email</b></label>
+									<input type="text" placeholder="Enter Email" name="email"required pattern = "^.+@+.+\.+.+$" value = "" title = "Please use valid email format. At least one . symbol and one @ symbol. >
 
-                <label for="address"><b>Address</b></label>
-			    <input type="text" placeholder="Enter Address" name="address" required>
+									<label for="address"><b>Address</b></label>
+									<input type="text" placeholder="Enter Address" name="address" required>
 
-                <label for="city"><b>City</b></label>
-			    <input type="text" placeholder="Enter City" name="city" required>
+									<label for="city"><b>City</b></label>
+									<input type="text" placeholder="Enter City" name="city" required>
 
-                <label for="state"><b>State</b></label>
-                <select name = "state" required>
-							<option value = "">Make a Selection</option>
-							<option value="AL">Alabama</option>
-							<option value="AK">Alaska</option>
-							<option value="AZ">Arizona</option>
-							<option value="AR">Arkansas</option>
-							<option value="CA">California</option>
-							<option value="CO">Colorado</option>
-							<option value="CT">Connecticut</option>
-							<option value="DE">Delaware</option>
-							<option value="DC">District Of Columbia</option>
-							<option value="FL">Florida</option>
-							<option value="GA">Georgia</option>
-							<option value="HI">Hawaii</option>
-							<option value="ID">Idaho</option>
-							<option value="IL">Illinois</option>
-							<option value="IN">Indiana</option>
-							<option value="IA">Iowa</option>
-							<option value="KS">Kansas</option>
-							<option value="KY">Kentucky</option>
-							<option value="LA">Louisiana</option>
-							<option value="ME">Maine</option>
-							<option value="MD">Maryland</option>
-							<option value="MA">Massachusetts</option>
-							<option value="MI">Michigan</option>
-							<option value="MN">Minnesota</option>
-							<option value="MS">Mississippi</option>
-							<option value="MO">Missouri</option>
-							<option value="MT">Montana</option>
-							<option value="NE">Nebraska</option>
-							<option value="NV">Nevada</option>
-							<option value="NH">New Hampshire</option>
-							<option value="NJ">New Jersey</option>
-							<option value="NM">New Mexico</option>
-							<option value="NY">New York</option>
-							<option value="NC">North Carolina</option>
-							<option value="ND">North Dakota</option>
-							<option value="OH">Ohio</option>
-							<option value="OK">Oklahoma</option>
-							<option value="OR">Oregon</option>
-							<option value="PA">Pennsylvania</option>
-							<option value="RI">Rhode Island</option>
-							<option value="SC">South Carolina</option>
-							<option value="SD">South Dakota</option>
-							<option value="TN">Tennessee</option>
-							<option value="TX">Texas</option>
-							<option value="UT">Utah</option>
-							<option value="VT">Vermont</option>
-							<option value="VA">Virginia</option>
-							<option value="WA">Washington</option>
-							<option value="WV">West Virginia</option>
-							<option value="WI">Wisconsin</option>
-							<option value="WY">Wyoming</option>
-			    </select>
-			    			
+									<label for="state"><b>State</b></label>
+									<select name = "state" required>
+												<option value = "">Make a Selection</option>
+												<option value="AL">Alabama</option>
+												<option value="AK">Alaska</option>
+												<option value="AZ">Arizona</option>
+												<option value="AR">Arkansas</option>
+												<option value="CA">California</option>
+												<option value="CO">Colorado</option>
+												<option value="CT">Connecticut</option>
+												<option value="DE">Delaware</option>
+												<option value="DC">District Of Columbia</option>
+												<option value="FL">Florida</option>
+												<option value="GA">Georgia</option>
+												<option value="HI">Hawaii</option>
+												<option value="ID">Idaho</option>
+												<option value="IL">Illinois</option>
+												<option value="IN">Indiana</option>
+												<option value="IA">Iowa</option>
+												<option value="KS">Kansas</option>
+												<option value="KY">Kentucky</option>
+												<option value="LA">Louisiana</option>
+												<option value="ME">Maine</option>
+												<option value="MD">Maryland</option>
+												<option value="MA">Massachusetts</option>
+												<option value="MI">Michigan</option>
+												<option value="MN">Minnesota</option>
+												<option value="MS">Mississippi</option>
+												<option value="MO">Missouri</option>
+												<option value="MT">Montana</option>
+												<option value="NE">Nebraska</option>
+												<option value="NV">Nevada</option>
+												<option value="NH">New Hampshire</option>
+												<option value="NJ">New Jersey</option>
+												<option value="NM">New Mexico</option>
+												<option value="NY">New York</option>
+												<option value="NC">North Carolina</option>
+												<option value="ND">North Dakota</option>
+												<option value="OH">Ohio</option>
+												<option value="OK">Oklahoma</option>
+												<option value="OR">Oregon</option>
+												<option value="PA">Pennsylvania</option>
+												<option value="RI">Rhode Island</option>
+												<option value="SC">South Carolina</option>
+												<option value="SD">South Dakota</option>
+												<option value="TN">Tennessee</option>
+												<option value="TX">Texas</option>
+												<option value="UT">Utah</option>
+												<option value="VT">Vermont</option>
+												<option value="VA">Virginia</option>
+												<option value="WA">Washington</option>
+												<option value="WV">West Virginia</option>
+												<option value="WI">Wisconsin</option>
+												<option value="WY">Wyoming</option>
+									</select>
+												
 
-                <label for="zipcode"><b>5-digit zip code</b></label>
-			    <input type="text" placeholder="Enter 5-digit zip code" name="zipcode" required>
+									<label for="zipcode"><b>5-digit zip code</b></label>
+									<input type="text" placeholder="Enter 5-digit zip code" name="zipcode" required>
 
-                <label for="username"><b>Username</b></label>
-			    <input type="text" placeholder="Enter Username" name="username" required>
+									<label for="username"><b>Username</b></label>
+									<input type="text" placeholder="Enter Username" name="username" required>
 
-			    <label for="psw"><b>Password</b></label>
-			    <input type="password" placeholder="Enter Password" name="psw" required>
+									<label for="psw"><b>Password</b></label>
+									<input type="password" placeholder="Enter Password" name="psw" required>
 
-			    <label for="psw-repeat"><b>Repeat Password</b></label>
-			    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+									<label for="psw-repeat"><b>Repeat Password</b></label>
+									<input type="password" placeholder="Repeat Password" name="psw-repeat" required>
 
-			   <!--  <label>
-			      <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-			    </label> -->
+									<p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
 
-			    <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-
-			    <div class="clearfix">
-			      <button type="button" class="cancelbtn">Cancel</button>
-			      <button type="submit" class="signupbtn">Sign Up</button>
-			    </div>
-			  </div>
-			</form>
-								</section>
-								
-							</div>
-						</div>
-					</section>
-
-
-
-					<section id="three" class="wrapper style1 fade-up">
-							
-
-			
-						
-
-					</section>
-		
-		
-										
+									<div class="clearfix">
+									<button type="button" class="cancelbtn">Cancel</button>
+									<button type="submit" class="signupbtn">Sign Up</button>
+									</div>
+								</div>
+							</form>
+						</section>	
+					</div>
+				</div>
+			</section>
+		<?php } ?>
 
 				<!-- Four -->
 					<section id="four" class="wrapper style1 fade-up">
@@ -274,50 +271,52 @@ session_start();
 					</section>
 
 					<!-- Five -->
-					<section id="five" class="wrapper style1 fade-up">
-						<div class="inner">
-							<h2>Services</h2>
-							<p>Buy plz.</p>
-							<div class="split style1">
-								<section>
-									<iframe src="https://bitcoinwisdom.io/markets/bitstamp/btcusd" class="iframe"></iframe>
-									<iframe float="center" frameBorder="0" scrolling="no" allowtransparency="0" src="https://bitcoinaverage.com/en/widgets?widgetType=conversion&bgcolor=#FFFFFF&bwidth=1&bcolor=#CCCCCC&cstyle=round&fsize=16px&ffamily=arial&fcolor=#000000&bgTransparent=solid&chartStyle=none&lastUpdateTime=none&currency0=USD&total=1" style="width:250px; height:275px; overflow:hidden; background-color:transparent !important;"></iframe>
-								</section> 
-								<section>
-										<div class="container">
-											<h3>Premium</h3>
-											<ul class="alt">
-												<li>This is the premium description</li>
-												<li>Price : 0.002 BTC</li>
-												<li>
-													<form action="https://test.bitpay.com/checkout" method="post">
-														<input type="hidden" name="action" value="checkout" />
-														<input type="hidden" name="posData" value="" />
-														<input type="hidden" name="data" value="v0BGPkhuQEjZIdeSYOJXP6EqInRsAHkhnEXbpvCTnmb2XPqR2eUZHDnGX1RmOe12ix2gqJMvcjsO/V38wk7hk0XO7D0o1tZIU/1MMoBAFmbvSIGo3yJewCMrmqlZFNiU//D53qy5uXEstkMfgDam8HzqHqMn0unMLQl7z0ZM5Ti3bIvH/tp7R/MehdAZAUxjbifvEPMVLvtsJM+fWJSANQ==" />
-														<input type="image" src="https://test.bitpay.com/cdn/en_US/bp-btn-pay-currencies.svg" name="submit" style="width: 210px" alt="BitPay, the easy way to pay with bitcoins.">
-													</form>
-												</li>
-											</ul>
-										</div>
-										<div class="container">
-											<h3>Normal</h3>
-											<ul class="alt">
-												<li>This is the normal description</li>
-												<li>Price : 0.001 BTC</li>
-												<li>
-													<form action="https://test.bitpay.com/checkout" method="post">
-														<input type="hidden" name="action" value="checkout" />
-														<input type="hidden" name="posData" value="" />
-														<input type="hidden" name="data" value="v0BGPkhuQEjZIdeSYOJXP6EqInRsAHkhnEXbpvCTnmb2XPqR2eUZHDnGX1RmOe12XGFi4jK19wVqDqVy9gJRqOeTTtTCKkwhuXcXY70vz8xfSUL40jt8D4A7+R6Hf9h40JYy7aZeMA3msiXQ1VQcnnAkQ8mtbTfZsXqr+cRDof1DfSij56h2wgTcVB5WG47KYHEZwxGUaVSYcLIUqvzckw==" />
-														<input type="image" src="https://test.bitpay.com/cdn/en_US/bp-btn-pay-currencies.svg" name="submit" style="width: 210px" alt="BitPay, the easy way to pay with bitcoins.">
-													</form>
-												</li>
-											</ul>
-										</div>
-								</section>
+					<?php if($_SESSION['isLogged']) { ?>
+						<section id="five" class="wrapper style1 fade-up">
+							<div class="inner">
+								<h2>Services</h2>
+								<p>Buy plz.</p>
+								<div class="split style1">
+									<section>
+										<iframe src="https://bitcoinwisdom.io/markets/bitstamp/btcusd" class="iframe"></iframe>
+										<iframe float="center" frameBorder="0" scrolling="no" allowtransparency="0" src="https://bitcoinaverage.com/en/widgets?widgetType=conversion&bgcolor=#FFFFFF&bwidth=1&bcolor=#CCCCCC&cstyle=round&fsize=16px&ffamily=arial&fcolor=#000000&bgTransparent=solid&chartStyle=none&lastUpdateTime=none&currency0=USD&total=1" style="width:250px; height:275px; overflow:hidden; background-color:transparent !important;"></iframe>
+									</section> 
+									<section>
+											<div class="container">
+												<h3>Premium</h3>
+												<ul class="alt">
+													<li>This is the premium description</li>
+													<li>Price : 0.002 BTC</li>
+													<li>
+														<form action="https://test.bitpay.com/checkout" method="post">
+															<input type="hidden" name="action" value="checkout" />
+															<input type="hidden" name="posData" value="" />
+															<input type="hidden" name="data" value="v0BGPkhuQEjZIdeSYOJXP6EqInRsAHkhnEXbpvCTnmb2XPqR2eUZHDnGX1RmOe12ix2gqJMvcjsO/V38wk7hk0XO7D0o1tZIU/1MMoBAFmbvSIGo3yJewCMrmqlZFNiU//D53qy5uXEstkMfgDam8HzqHqMn0unMLQl7z0ZM5Ti3bIvH/tp7R/MehdAZAUxjbifvEPMVLvtsJM+fWJSANQ==" />
+															<input type="image" src="https://test.bitpay.com/cdn/en_US/bp-btn-pay-currencies.svg" name="submit" style="width: 210px" alt="BitPay, the easy way to pay with bitcoins.">
+														</form>
+													</li>
+												</ul>
+											</div>
+											<div class="container">
+												<h3>Normal</h3>
+												<ul class="alt">
+													<li>This is the normal description</li>
+													<li>Price : 0.001 BTC</li>
+													<li>
+														<form action="https://test.bitpay.com/checkout" method="post">
+															<input type="hidden" name="action" value="checkout" />
+															<input type="hidden" name="posData" value="" />
+															<input type="hidden" name="data" value="v0BGPkhuQEjZIdeSYOJXP6EqInRsAHkhnEXbpvCTnmb2XPqR2eUZHDnGX1RmOe12XGFi4jK19wVqDqVy9gJRqOeTTtTCKkwhuXcXY70vz8xfSUL40jt8D4A7+R6Hf9h40JYy7aZeMA3msiXQ1VQcnnAkQ8mtbTfZsXqr+cRDof1DfSij56h2wgTcVB5WG47KYHEZwxGUaVSYcLIUqvzckw==" />
+															<input type="image" src="https://test.bitpay.com/cdn/en_US/bp-btn-pay-currencies.svg" name="submit" style="width: 210px" alt="BitPay, the easy way to pay with bitcoins.">
+														</form>
+													</li>
+												</ul>
+											</div>
+									</section>
+								</div>
 							</div>
-						</div>
-					</section>
+						</section>
+					<?php } ?>
 
 
 		<!-- Footer -->
