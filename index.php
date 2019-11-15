@@ -1,6 +1,5 @@
 <?php
-//if (session_status() !== PHP_SESSION_ACTIVE) {session_start();}
-if(session_id() == '' || !isset($_SESSION)){session_start();}
+session_start();
 ?>
 
 <!DOCTYPE HTML>
@@ -15,7 +14,6 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
   margin: 0;
   border: none;
   margin: 0;
-  padding: 0;
   display: block;
   width: 100%;
   height: 50vh;
@@ -283,6 +281,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
 							<div class="split style1">
 								<section>
 									<iframe src="https://bitcoinwisdom.io/markets/bitstamp/btcusd" class="iframe"></iframe>
+									<iframe float="center" frameBorder="0" scrolling="no" allowtransparency="0" src="https://bitcoinaverage.com/en/widgets?widgetType=conversion&bgcolor=#FFFFFF&bwidth=1&bcolor=#CCCCCC&cstyle=round&fsize=16px&ffamily=arial&fcolor=#000000&bgTransparent=solid&chartStyle=none&lastUpdateTime=none&currency0=USD&total=1" style="width:250px; height:275px; overflow:hidden; background-color:transparent !important;"></iframe>
 								</section> 
 								<section>
 										<div class="container">
