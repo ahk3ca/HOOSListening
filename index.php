@@ -78,7 +78,7 @@ $_SESSION['name'] = "Josh";
 								}
 							?>
 							<ul class="actions">
-								<li><a href="login.php" class="button scrolly">Member Login</a></li>
+								<li><a href="login.html" class="button scrolly">Member Login</a></li>
 							</ul>
 						</div>
 					</section>
@@ -88,9 +88,6 @@ $_SESSION['name'] = "Josh";
 						<div class="inner">
 							<h2>Who We Are</h2>
 							<p>With HOOS Listening, finding new music from emerging artists has never been easier. Support your favorite, local artists by interacting with their content and helping them gain more national exposure. <br /> <br /> Let your <strong>voice</strong> be heard.</p>
-							<ul class="actions">
-								<li><a href="#three" class="button">Sign Up</a></li>
-							</ul>
 							<ul class="actions">
 								<li><a href="#three" class="button">Sign Up</a></li>
 							</ul>
