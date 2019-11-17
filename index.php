@@ -50,13 +50,13 @@ $_SESSION['name'] = "Josh";
 								<li><a href="#three">Sign Up</a></li>
 							<?php } ?>
 							<li><a href="#four">Get in touch</a></li>
-<<<<<<< HEAD
-=======
+<!-- <<<<<<< HEAD
+======= -->
 							<?php if($_SESSION['isLogged']) { ?>
 								<li><a href="#five">Services</a></li>
 							<?php } ?>
->>>>>>> ad075b6d2a363a812cc585c0e081d67e39c638eb
-						</ul>
+<!-- >>>>>>> ad075b6d2a363a812cc585c0e081d67e39c638eb
+ -->						</ul>
 					</nav>
 				</div>
 			</section>
