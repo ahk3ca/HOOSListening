@@ -1,7 +1,7 @@
 <?php
 session_start();
-$_SESSION['isLogged'] = false;
-$_SESSION['name'] = "Josh";
+// $_SESSION['isLogged'] = false;
+// $_SESSION['name'] = "Josh";
 ?>
 
 <!DOCTYPE HTML>
@@ -10,8 +10,7 @@ $_SESSION['name'] = "Josh";
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<!-- <<<<<<< HEAD
-======= -->
+
 <style>
 .iframe {
   padding: 0;
@@ -27,8 +26,8 @@ $_SESSION['name'] = "Josh";
   }
 }
 </style>
-<!-- >>>>>>> ad075b6d2a363a812cc585c0e081d67e39c638eb
- --><html>
+
+<html>
 	<head>
 		<title>HOOS Listening | Home</title>
 		<meta charset="utf-8" />
@@ -46,17 +45,15 @@ $_SESSION['name'] = "Josh";
 							<li><a href="#intro">Home</a></li>
 							<li><a href="#one">Who we are</a></li>
 							<li><a href="#two">What we do</a></li>
-							<?php if(!$_SESSION['isLogged']) { ?>
+							<?php if(!isset($_SESSION['isLogged'])){ ?>
 								<li><a href="#three">Sign Up</a></li>
 							<?php } ?>
 							<li><a href="#four">Get in touch</a></li>
-<!-- <<<<<<< HEAD
-======= -->
-							<?php if($_SESSION['isLogged']) { ?>
+
+							<?php if(isset($_SESSION['isLogged'])) { ?>
 								<li><a href="#five">Services</a></li>
 							<?php } ?>
-<!-- >>>>>>> ad075b6d2a363a812cc585c0e081d67e39c638eb
- -->						</ul>
+					</ul>
 					</nav>
 				</div>
 			</section>
@@ -69,7 +66,7 @@ $_SESSION['name'] = "Josh";
 						<div class="inner">
 							<h1>HOOS Listening</h1>
 							<?php 
-								if($_SESSION['isLogged']){
+								if(isset($_SESSION['isLogged'])){
 									echo "<p>";
 									echo $_SESSION['name'] , ", ", "Let your <strong>voice</strong> be heard."; 
 									echo "</p>";
@@ -77,9 +74,18 @@ $_SESSION['name'] = "Josh";
 									echo "<p>Let your <strong>voice</strong> be heard.</p>";
 								}
 							?>
-							<ul class="actions">
-								<li><a href="login.html" class="button scrolly">Member Login</a></li>
+<!-- 							<?php if (!isset($_SESSION['isLogged'])){ ?>
+ -->						<ul class="actions">
+								<li><a href="login.php" class="button scrolly">Member Login</a></li>
 							</ul>
+<!-- 							<?php } ?>
+ -->							
+							
+						<form id="Logout" href="logout.php" method="post">
+							<input type="submit" name="Logout" value="Logout" class="primary">
+						</form>
+	
+
 						</div>
 					</section>
 
@@ -88,9 +94,6 @@ $_SESSION['name'] = "Josh";
 						<div class="inner">
 							<h2>Who We Are</h2>
 							<p>With HOOS Listening, finding new music from emerging artists has never been easier. Support your favorite, local artists by interacting with their content and helping them gain more national exposure. <br /> <br /> Let your <strong>voice</strong> be heard.</p>
-							<ul class="actions">
-								<li><a href="#three" class="button">Sign Up</a></li>
-							</ul>
 							<ul class="actions">
 								<li><a href="#three" class="button">Sign Up</a></li>
 							</ul>
@@ -106,138 +109,11 @@ $_SESSION['name'] = "Josh";
 								<img src="Hoos Listening Logo.png" alt="Girl in a jacket" class="rounded float-bottom" style="width:300px;height:300px;"> 
 						</div>
 					</section>
-
-
-
-
-					<!-- Sign up page (three) -->
-<!-- <<<<<<< HEAD
- -->		<section id="three" class="wrapper style1 fade-up">
-						<div class="inner">				
-							<div class="split style1">
-								<section>
-									<form method="POST" action="signup.php" >
-			  <div class="container">
-			    <h1>Sign Up</h1>
-			    <p>Please fill in this form to create an account.</p>
-			    <hr>
-
-                <label for="fname"><b>First Name</b></label>
-			    <input type="text" placeholder="Enter First Name" name="fname" required pattern = "^[a-zA-Z]+$" title = "Need one letter minimum. Nothing besides letters.">
-
-                <label for="lname"><b>Last Name</b></label>
-			    <input type="text" placeholder="Enter Last Name" name="lname" required pattern = "^[a-zA-Z]+-*[a-zA-Z]*$" title = "Need one letter minimum. Nothing besides letters. Hyphens allowed.">
-
-			    <label for="email"><b>Email</b></label>
-			    <input type="text" placeholder="Enter Email" name="email"required pattern = "^.+@+.+\.+.+$" value = "" title = "Please use valid email format. At least one . symbol and one @ symbol." >
-
-                <label for="address"><b>Address</b></label>
-			    <input type="text" placeholder="Enter Address" name="address" required pattern = "^\d+.*[a-zA-Z]+$" title = "Need at least one number followed by one letter.">
-
-                <label for="city"><b>City</b></label>
-			    <input type="text" placeholder="Enter City" name="city" required pattern = "^[a-zA-Z]+\s*[a-zA-Z]*$" value = "" title = "Need at least one letter">
-
-                <label for="state"><b>State</b></label>
-                <select name = "state" required>
-							<option value = "">Make a Selection</option>
-							<option value="AL">Alabama</option>
-							<option value="AK">Alaska</option>
-							<option value="AZ">Arizona</option>
-							<option value="AR">Arkansas</option>
-							<option value="CA">California</option>
-							<option value="CO">Colorado</option>
-							<option value="CT">Connecticut</option>
-							<option value="DE">Delaware</option>
-							<option value="DC">District Of Columbia</option>
-							<option value="FL">Florida</option>
-							<option value="GA">Georgia</option>
-							<option value="HI">Hawaii</option>
-							<option value="ID">Idaho</option>
-							<option value="IL">Illinois</option>
-							<option value="IN">Indiana</option>
-							<option value="IA">Iowa</option>
-							<option value="KS">Kansas</option>
-							<option value="KY">Kentucky</option>
-							<option value="LA">Louisiana</option>
-							<option value="ME">Maine</option>
-							<option value="MD">Maryland</option>
-							<option value="MA">Massachusetts</option>
-							<option value="MI">Michigan</option>
-							<option value="MN">Minnesota</option>
-							<option value="MS">Mississippi</option>
-							<option value="MO">Missouri</option>
-							<option value="MT">Montana</option>
-							<option value="NE">Nebraska</option>
-							<option value="NV">Nevada</option>
-							<option value="NH">New Hampshire</option>
-							<option value="NJ">New Jersey</option>
-							<option value="NM">New Mexico</option>
-							<option value="NY">New York</option>
-							<option value="NC">North Carolina</option>
-							<option value="ND">North Dakota</option>
-							<option value="OH">Ohio</option>
-							<option value="OK">Oklahoma</option>
-							<option value="OR">Oregon</option>
-							<option value="PA">Pennsylvania</option>
-							<option value="RI">Rhode Island</option>
-							<option value="SC">South Carolina</option>
-							<option value="SD">South Dakota</option>
-							<option value="TN">Tennessee</option>
-							<option value="TX">Texas</option>
-							<option value="UT">Utah</option>
-							<option value="VT">Vermont</option>
-							<option value="VA">Virginia</option>
-							<option value="WA">Washington</option>
-							<option value="WV">West Virginia</option>
-							<option value="WI">Wisconsin</option>
-							<option value="WY">Wyoming</option>
-			    </select>
-			    			
-
-                <label for="zipcode"><b>5-digit zip code</b></label>
-			    <input type="text" placeholder="Enter 5-digit zip code" name="zipcode" required pattern = "^\d{5}$" value = "" title = "Need exactly 5 numbers.">
-
-                <label for="username"><b>Username</b></label>
-			    <input type="text" placeholder="Enter Username" name="username" required>
-
-			    <label for="psw"><b>Password</b></label>
-			    <input type="password" placeholder="Enter Password" name="psw" required>
-
-			    <label for="psw-repeat"><b>Repeat Password</b></label>
-			    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-
-			   <!--  <label>
-			      <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-			    </label> -->
-
-			    <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-
-			    <div class="clearfix">
-			      <button type="button" class="cancelbtn">Cancel</button>
-			      <button type="submit" class="signupbtn" value="Submit">Sign Up</button>
-			    </div>
-			  </div>
-			</form>
-								</section>
-								
-							</div>
-						</div>
-					</section>
-
-
-
-					<section id="three" class="wrapper style1 fade-up">
-							
-
-			
-						
-
-					</section>
 		
 		
 										
-<!-- ======= -->
-		<?php if(!$_SESSION['isLogged']) { ?>
+		<?php 
+			if (!isset($_SESSION['isLogged'])){ ?>
 			<section id="three" class="wrapper style1 fade-up">
 				<div class="inner">				
 					<div class="split style1">
@@ -345,8 +221,8 @@ $_SESSION['name'] = "Josh";
 				</div>
 			</section>
 		<?php } ?>
-<!-- >>>>>>> ad075b6d2a363a812cc585c0e081d67e39c638eb
- -->
+
+
 				<!-- Four -->
 					<section id="four" class="wrapper style1 fade-up">
 						<div class="inner">
@@ -406,8 +282,7 @@ $_SESSION['name'] = "Josh";
 						</div>
 					</section>
 
-<!-- <<<<<<< HEAD
-======= -->
+
 					<!-- Five -->
 					<?php if($_SESSION['isLogged']) { ?>
 						<section id="five" class="wrapper style1 fade-up">
@@ -456,8 +331,7 @@ $_SESSION['name'] = "Josh";
 						</section>
 					<?php } ?>
 
-<!-- >>>>>>> ad075b6d2a363a812cc585c0e081d67e39c638eb
- -->
+
 		<!-- Footer -->
 			<footer id="footer" class="wrapper style1-alt">
 				<div class="inner">

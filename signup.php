@@ -7,6 +7,7 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 require 'vendor/autoload.php';
 
+
 include 'config.php';
 $fname = $_POST["fname"];
 $lname = $_POST["lname"];
@@ -41,7 +42,7 @@ $result = pg_query($db_connection, $query);
         $mail->Subject = 'Welcome to HOOSListening!';
         $mail->Body = 'Thanks for signing up with HOOSListening!';
         $mail->send();
-        $_SESSION['isLogged'] = true;
+
 
 		exit();
 	}

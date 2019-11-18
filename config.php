@@ -9,8 +9,4 @@ $db_host = 'ec2-174-129-229-106.compute-1.amazonaws.com';
 
 $db_connection = pg_connect("host=$db_host dbname=$db_name user=$db_username password=$db_password");
 
-
-
-
-
 ?>
