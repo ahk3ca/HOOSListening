@@ -10,8 +10,8 @@ $_SESSION['name'] = "Josh";
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<<<<<<< HEAD
-=======
+<!-- <<<<<<< HEAD
+======= -->
 <style>
 .iframe {
   padding: 0;
@@ -27,8 +27,8 @@ $_SESSION['name'] = "Josh";
   }
 }
 </style>
->>>>>>> ad075b6d2a363a812cc585c0e081d67e39c638eb
-<html>
+<!-- >>>>>>> ad075b6d2a363a812cc585c0e081d67e39c638eb
+ --><html>
 	<head>
 		<title>HOOS Listening | Home</title>
 		<meta charset="utf-8" />
@@ -111,8 +111,8 @@ $_SESSION['name'] = "Josh";
 
 
 					<!-- Sign up page (three) -->
-<<<<<<< HEAD
-		<section id="three" class="wrapper style1 fade-up">
+<!-- <<<<<<< HEAD
+ -->		<section id="three" class="wrapper style1 fade-up">
 						<div class="inner">				
 							<div class="split style1">
 								<section>
@@ -236,7 +236,7 @@ $_SESSION['name'] = "Josh";
 		
 		
 										
-=======
+<!-- ======= -->
 		<?php if(!$_SESSION['isLogged']) { ?>
 			<section id="three" class="wrapper style1 fade-up">
 				<div class="inner">				
@@ -345,8 +345,8 @@ $_SESSION['name'] = "Josh";
 				</div>
 			</section>
 		<?php } ?>
->>>>>>> ad075b6d2a363a812cc585c0e081d67e39c638eb
-
+<!-- >>>>>>> ad075b6d2a363a812cc585c0e081d67e39c638eb
+ -->
 				<!-- Four -->
 					<section id="four" class="wrapper style1 fade-up">
 						<div class="inner">
@@ -406,8 +406,8 @@ $_SESSION['name'] = "Josh";
 						</div>
 					</section>
 
-<<<<<<< HEAD
-=======
+<!-- <<<<<<< HEAD
+======= -->
 					<!-- Five -->
 					<?php if($_SESSION['isLogged']) { ?>
 						<section id="five" class="wrapper style1 fade-up">
@@ -456,8 +456,8 @@ $_SESSION['name'] = "Josh";
 						</section>
 					<?php } ?>
 
->>>>>>> ad075b6d2a363a812cc585c0e081d67e39c638eb
-
+<!-- >>>>>>> ad075b6d2a363a812cc585c0e081d67e39c638eb
+ -->
 		<!-- Footer -->
 			<footer id="footer" class="wrapper style1-alt">
 				<div class="inner">
